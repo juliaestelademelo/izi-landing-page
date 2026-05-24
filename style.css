@@ -1,0 +1,365 @@
+:root{
+  --bg: #ffffff;
+  --text: #0f172a;
+  --muted: #475569;
+  --border: #e2e8f0;
+  --accent: #000000;
+
+  --container: 1100px;
+  --pad: 20px;
+
+  --accent2: #FDC202;
+  --accent-ink: #0b0b0b; /* texto em cima do amarelo */
+}
+
+/* base mínima */
+*{ box-sizing: border-box; }
+
+html, body {
+  overflow-x: hidden;
+}
+
+
+
+body{
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.hero h1,
+#problema h2,
+#como-funciona h2,
+#beneficios h2,
+#demo h2{
+  text-align: center;
+}
+
+.container{
+  width: min(var(--container), 100% - (var(--pad) * 2));
+  margin-inline: auto;
+}
+
+header{
+  background: rgba(255,255,255,0.9);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+}
+
+
+header .container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* nav esquerda, logo direita */
+  padding: 14px 0;
+}
+
+/* logo */
+header img{
+  height: 65px;
+  width: auto;
+  display: block;
+}
+
+/* links */
+nav{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap; /* mobile: quebra linha */
+}
+
+nav a{
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 10px;
+  border-radius: 10px;
+  position: relative;
+  transition: transform 120ms ease, filter 120ms ease;
+}
+
+
+
+nav a:active{
+  transform: translateY(1px);
+  filter: brightness(0.9);
+}
+
+
+
+nav a:focus-visible{
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* CTA dentro do nav */
+.btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  border-radius: 0px; /* ou 0 se quiser totalmente reto */
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  border: 1px solid transparent;
+  transition: transform 120ms ease, box-shadow 120ms ease, filter 120ms ease;
+  text-decoration: none;
+}
+
+.btn:hover{
+  background: var(--accent);
+  filter: brightness(0.96);
+}
+
+.btn:focus-visible{
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+
+.btn:active{
+  transform: translateY(1px);
+  filter: brightness(0.92);
+}
+
+
+
+
+
+.hero{
+  padding: 72px 0; /* depois ajustamos responsivo */
+}
+
+.hero .container{
+  text-align: center; /* combina com nav centralizada */
+}
+
+.hero h1{
+  margin: 0 0 12px;
+  font-size: 40px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.hero p{
+  margin: 0 auto 20px;
+  max-width: 62ch;        /* linha confortável */
+  color: var(--muted);
+  font-size: 16px;
+}
+
+/* Botão secundário (hero) */
+.btn-secondary{
+  text-decoration: none;
+  background: #ffffff;
+  color: var(--text);
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 24px rgba(2, 6, 23, 0.06);
+}
+
+.btn-secondary:hover{
+  background: var(--text);
+  border-color: var(--text);
+  color: #ffffff;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+
+
+
+#problema{
+  padding: 40px 0;
+}
+
+#problema h2{
+  margin: 0 0 18px;
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+/* PROBLEMAS */
+.card-grid{
+  display: grid;
+  gap: 14px;
+}
+
+.card{
+  background: #f8fafc;              /* leve contraste */
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.card p{
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+
+#problema .card-grid{
+  grid-template-columns: repeat(3, 1fr);
+}
+
+#problema .card{
+  display: flex;
+  flex-direction: column; /* ícone em cima, texto embaixo */
+  gap: 10px;
+  min-height: 120px;
+}
+
+#problema .card img{
+  color: var(--accent2);
+  width: 65px;
+  height: 65px;
+  object-fit: contain;
+  display: block;
+
+    padding: 8px;
+  border: 1px solid var(--border);
+  background: #ffffff;
+  border-radius: 10px;   /* se quiser reto: 6px ou 0 */
+}
+
+
+
+
+/* COMO FUNCIONA */
+
+/* COMO FUNCIONA — cards lado a lado (grid), conteúdo vertical */
+#como-funciona .card-grid{
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(3, 1fr); /* igual ao problema */
+}
+
+/* card continua vertical por dentro */
+#como-funciona .card{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #f8fafc;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+
+.mockup-video{
+  display: block;
+  width: 100%;
+  max-width: 720px;
+  margin: 24px auto 32px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: #fff;
+}
+
+
+/* BENEFÍCIOS */
+#beneficios{
+  padding: 56px 0;
+}
+
+/* 4 cards lado a lado (desktop-first) */
+#beneficios .card-grid{
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* garante consistência de tipografia */
+#beneficios .card h3{
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+#beneficios .card p{
+  margin: 8px 0 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* DEMO (CTA final) */
+#demo{
+  padding: 64px 0;
+}
+
+#demo .cta-box{
+  text-align: center;
+}
+
+#demo h2{
+  margin: 0 0 8px;
+  font-size: 20px;
+  line-height: 2;
+}
+
+#demo p{
+  margin: 0 auto 16px;
+  max-width: 70ch;
+  color: var(--muted);
+}
+
+/* FOOTER */
+footer{
+  border-top: 1px solid var(--border);
+  padding: 28px 0;
+  text-align: center;
+}
+
+footer p strong{
+  display: block;
+  margin: 0 0 6px;
+  font-size: 16px;
+  color: var(--text);
+}
+
+
+/* ==============================
+   RESPONSIVIDADE
+============================== */
+@media (max-width: 768px) {
+
+  .hero h1{
+    font-size: 28px;
+  }
+
+  #problema .card-grid{
+    grid-template-columns: 1fr;
+  }
+
+  #beneficios .card-grid{
+    grid-template-columns: 1fr 1fr;
+  }
+
+  nav{
+    gap: 8px;
+  }
+
+  nav a:not(.btn) {
+  display: none;
+}
+
+}
+
+@media (max-width: 480px) {
+
+  #beneficios .card-grid{
+    grid-template-columns: 1fr;
+  }
+
+  .btn{
+    width: 100%;
+    text-align: center;
+  }
+
+}
+
